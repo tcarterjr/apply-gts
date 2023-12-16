@@ -1,7 +1,11 @@
 // @ts-check
+// eslint-disable-next-line n/no-unpublished-import
 import { files, js, packageJson } from 'ember-apply';
+// @ts-ignore
 import fs from 'fs';
+// @ts-ignore
 import path, { dirname } from 'path';
+// @ts-ignore
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -26,6 +30,11 @@ export async function checkDependencies(packages) {
 }
 
 export default async function run() {
+  // ADD DEPENDENCIES
+  //---------------------------------------------
+
+  log('Adding dependencies');
+
   const newDependencies = {
     '@glint/core': '^1.2.1',
     '@glint/environment-ember-template-imports': '^1.2.1',
@@ -33,10 +42,11 @@ export default async function run() {
     'prettier-plugin-ember-template-tag': '^1.1.0',
   };
 
-  log('Adding dependencies');
-
   await checkDependencies(newDependencies);
   await packageJson.addDevDependencies(newDependencies);
+
+  // UPDATE PRETTIER CONFIGURATION
+  //---------------------------------------------
 
   log('Updating configuration file: .prettierrc.js');
 
@@ -81,43 +91,18 @@ export default async function run() {
     return root.toSource();
   });
 
+  // UPDATE TS CONFIGURATION
+  //---------------------------------------------
+
   log('Updating configuration file: tsconfig.json');
 
-  // Ideally, this would update the tsconfig.json file to add the glint configuration.
-  // However, it doesn't work because the tsconfig.json file is not parsable by jscodeshift
-  // and since it has comments, it can't be parsed by JSON.parse either.  So, instead,
-  // we will modify the file using regular expressions.
-  // await js.transform('tsconfig.json', async ({ root, j }) => {
-  //   // Find the top-level object in the tsconfig.json file
-  //   const topLevelObject = root.find(j.ObjectExpression).at(0);
+  // Ideally, we would update the tsconfig.json file using jscodeshift to add the
+  // glint configuration.
+  // However, it doesn't work because the tsconfig.json file is not parsable by
+  // jscodeshift, and since it has comments, it can't be parsed by JSON.parse
+  // either.  So, instead, we will modify the file using regular expressions.
 
-  //   // Create a new 'glint' property
-  //   const glintProperty = j.property(
-  //     'init',
-  //     j.identifier('glint'),
-  //     j.objectExpression([
-  //       j.property(
-  //         'init',
-  //         j.identifier('environment'),
-  //         j.arrayExpression([
-  //           j.literal('ember-loose'),
-  //           j.literal('ember-template-imports'),
-  //         ])
-  //       ),
-  //     ])
-  //   );
-
-  //   // Add the 'glint' property at the beginning of the top-level object
-  //   topLevelObject.get('properties').value.unshift(glintProperty);
-
-  //   return root.toSource();
-  // });
-
-  // This updates the tsconfig.json file to add the glint configuration.  It uses
-  // the file api and regular expressions to do so.
-  //
   // Define the path to the tsconfig.json file
-  // TODO: is this the right path?
   const tsconfigPath = path.resolve('.', 'tsconfig.json');
 
   // Read the tsconfig.json file
@@ -135,6 +120,9 @@ export default async function run() {
 
   // Write the updated content back to the tsconfig.json file
   fs.writeFileSync(tsconfigPath, updatedTsconfig);
+
+  // UPDATE TYPE REGISTRY (page-title)
+  //---------------------------------------------
 
   log('Updating types/global.d.ts');
 
