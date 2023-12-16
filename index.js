@@ -84,7 +84,7 @@ export default async function run() {
     });
 
     // Update the value of the 'files' property
-    filesProperty.forEach((path) => {
+    filesProperty.forEach((/** @type {any} */ path) => {
       path.node.value = j.literal('*.{js,ts,gjs,gts}');
     });
 
