@@ -1,5 +1,5 @@
 {
-  "name": "apply-gts",
+  "name": "@tcjr/apply-gts",
   "version": "1.0.0",
   "description": "ember-apply plugin for enabling gjs/gts + glint",
   "main": "index.js",
@@ -21,7 +21,7 @@
   "type": "module",
   "license": "MIT",
   "preset": "index.js",
-  "author": "NullVoxPopuli",
+  "author": "tcjr",
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
     "@nullvoxpopuli/eslint-configs": "^3.2.2",
