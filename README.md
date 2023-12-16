@@ -4,15 +4,14 @@ Automates the steps for adding gjs/gts & Glint to an existing Ember app.
 
 ## Usage
 
-Clone the repository, then use `ember-apply` to run it from the root of an
-Ember app:
+Use `ember-apply` to run it from the root of an Ember app:
 
 ```sh
-npx ember-apply ../path/to/apply-gts/index.js
+npx ember-apply @tcjr/apply-gts
 ```
 
 I haven't looked at why, but the transforms don't preserve the quotes and
-formatting, so I run `pnpm lint:fix` after.
+formatting, so I usually run `pnpm lint:fix` after.
 
 ## Info
 
@@ -20,6 +19,11 @@ I run this right after creating a new Ember app. For example:
 
 ```sh
 ember new my-app --typescript --pnpm --no-welcome --embroider --lang en
+cd my-app
+npx ember-apply @tcjr/apply-gts
+npx ember-apply tailwind-webpack
+pnpm install
+pnpm lint:fix
 ```
 
 Then this script adds gts support (via `ember-template-imports`) and configures prettier & glint following the instructions from various places:
