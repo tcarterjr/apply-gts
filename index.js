@@ -127,4 +127,11 @@ export default async function run() {
   log('Updating types/global.d.ts');
 
   await files.applyFolder(path.join(__dirname, 'files/types'), 'types');
+
+  // UPDATE lint:types SCRIPT
+  //---------------------------------------------
+
+  log('Updating lint:types script');
+
+  await packageJson.addScript('lint:types', 'glint');
 }
