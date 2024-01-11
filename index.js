@@ -135,3 +135,5 @@ export default async function run() {
 
   await packageJson.addScript('lint:types', 'glint');
 }
+
+run.path = __dirname;
