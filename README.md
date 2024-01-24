@@ -32,4 +32,4 @@ Then this script adds gts support (via `ember-template-imports`) and configures 
 - https://github.com/gitKrystan/prettier-plugin-ember-template-tag?tab=readme-ov-file#usage
 - https://typed-ember.gitbook.io/glint/environments/ember/installation
 
-This is just a time saver I use for bootstrapping new projects. YMMV
+This is just a time saver I use for bootstrapping new projects. I only run this with new projects and try to keep it up to date with the latest Ember release. I tested this with Ember 5.6.0. YMMV

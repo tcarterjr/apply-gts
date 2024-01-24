@@ -1,12 +1,9 @@
 import '@glint/environment-ember-loose';
-import { ComponentLike, HelperLike } from '@glint/template';
+import { ComponentLike } from '@glint/template';
+import type EmberPageTitleTemplateRegistry from 'ember-page-title/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
+  export default interface Registry extends EmberPageTitleTemplateRegistry {
     WelcomePage: ComponentLike;
-    'page-title': HelperLike<{
-      Args: { Positional: [title: string] };
-      Return: void;
-    }>;
   }
 }
