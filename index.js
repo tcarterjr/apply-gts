@@ -115,7 +115,8 @@ export default async function run() {
   const glintConfig = `,
     "glint": {
       "environment": ["ember-loose", "ember-template-imports"]
-    }
+    },
+    "exclude": ["blueprints"],
   `;
 
   // Insert the glint configuration just before the last closing brace
@@ -140,4 +141,30 @@ export default async function run() {
   log('Updating lint:types script');
 
   await packageJson.addScript('lint:types', 'glint');
+
+  // ADDING BLUEPRINTS
+  //---------------------------------------------
+
+  log('Adding gts blueprint');
+
+  fs.mkdirSync(
+    path.join('.', 'blueprints/gts-component/files/app/components'),
+    {
+      recursive: true,
+    }
+  );
+
+  await files.copyFileTo(
+    'blueprints/gts-component/files/app/components/__name__.gts',
+    {
+      source: path.join(
+        __dirname,
+        'files/blueprints/gts-component/files/app/components/__name__.gts'
+      ),
+    }
+  );
+
+  await files.copyFileTo('blueprints/gts-component/index.js', {
+    source: path.join(__dirname, 'files/blueprints/gts-component/index.js'),
+  });
 }

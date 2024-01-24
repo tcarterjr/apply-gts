@@ -33,3 +33,13 @@ Then this script adds gts support (via `ember-template-imports`) and configures 
 - https://typed-ember.gitbook.io/glint/environments/ember/installation
 
 This is just a time saver I use for bootstrapping new projects. I only run this with new projects and try to keep it up to date with the latest Ember release. I tested this with Ember 5.6.0. YMMV
+
+## Blueprint
+
+This also adds a basic blueprint for gts components to the app. Run it like this:
+
+```
+ember g gts-component fancy-stuff
+```
+
+This will create `app/components/fancy-stuff.gts` with a signature stub and loose-mode registration info. Customize it by editing `blueprints/gts-component/files/app/components/__name__.gts`.
