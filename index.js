@@ -36,10 +36,13 @@ export default async function run() {
   log('Adding dependencies');
 
   const newDependencies = {
-    '@glint/core': '^1.2.1',
-    '@glint/environment-ember-template-imports': '^1.2.1',
+    '@glint/core': '^1.3.0',
+    '@glint/environment-ember-loose': '^1.3.0',
+    '@glint/template': '^1.3.0',
+    '@glint/environment-ember-template-imports': '^1.3.0',
     'ember-template-imports': '^4.0.0',
-    'prettier-plugin-ember-template-tag': '^1.1.0',
+    'prettier-plugin-ember-template-tag': '^2.0.0',
+    'ember-page-title': '^8.2.1',
   };
 
   await checkDependencies(newDependencies);
@@ -123,6 +126,9 @@ export default async function run() {
 
   // UPDATE TYPE REGISTRY (page-title)
   //---------------------------------------------
+  // NOTE: As of Ember 5.6, the types/global.d.ts file has a single import for
+  // @glint/environment-ember-loose. This will replace the file with a new one
+  // with the same import and some new stuff.
 
   log('Updating types/global.d.ts');
 
