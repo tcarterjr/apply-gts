@@ -1,6 +1,6 @@
 {
   "name": "@tcjr/apply-gts",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "ember-apply plugin for enabling gjs/gts + glint",
   "main": "index.js",
   "exports": {
