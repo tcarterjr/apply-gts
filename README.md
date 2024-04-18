@@ -4,7 +4,7 @@ Automates the steps for adding gjs/gts & Glint to an existing Ember app.
 
 ## Usage
 
-Use `ember-apply` to run it from the root of an Ember app:
+Use [ember-apply](https://github.com/NullVoxPopuli/ember-apply) to run it from the root of an Ember app:
 
 ```sh
 npx ember-apply @tcjr/apply-gts
