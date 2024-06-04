@@ -37,12 +37,12 @@ export default async function run() {
 
   const newDependencies = {
     '@glint/core': '^1.3.0',
-    '@glint/environment-ember-loose': '^1.3.0',
-    '@glint/template': '^1.3.0',
+    '@glint/environment-ember-loose': '^1.4.0',
+    '@glint/template': '^1.4.0',
     '@glint/environment-ember-template-imports': '^1.3.0',
-    'ember-template-imports': '^4.0.0',
-    'prettier-plugin-ember-template-tag': '^2.0.0',
-    'ember-page-title': '^8.2.1',
+    'ember-template-imports': '^4.1.0',
+    'prettier-plugin-ember-template-tag': '^2.0.2',
+    'ember-page-title': '^8.2.3',
   };
 
   await checkDependencies(newDependencies);
