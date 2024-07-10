@@ -2,30 +2,33 @@
   "name": "@tcjr/apply-gts",
   "version": "1.2.0",
   "description": "ember-apply plugin for enabling gjs/gts + glint",
-  "main": "index.js",
+  "keywords": [],
+  "homepage": "https://github.com/tcarterjr/apply-gts#readme",
+  "bugs": {
+    "url": "https://github.com/tcarterjr/apply-gts/issues"
+  },
+  "repository": {
+    "type": "https",
+    "url": "git+https://github.com/tcarterjr/apply-gts.git"
+  },
+  "license": "MIT",
+  "author": "tcjr",
+  "type": "module",
   "exports": {
     "import": "./index.js"
   },
+  "main": "index.js",
   "files": [
     "index.js",
     "files/**/*"
   ],
   "scripts": {
-    "lint:types": "tsc --noEmit",
     "build": "tsc --build",
     "lint": "pnpm lint:js",
-    "lint:js": "eslint .",
     "lint:fix": "pnpm lint:js --fix",
+    "lint:js": "eslint .",
+    "lint:types": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "type": "module",
-  "license": "MIT",
-  "preset": "index.js",
-  "author": "tcjr",
-  "repository": {
-    "url": "git+https://github.com/tcarterjr/apply-gts.git",
-    "type": "https"
   },
   "dependencies": {
     "ember-apply": "^2.10.3"
@@ -39,10 +42,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.1.1",
+    "release-plan": "^0.9.0",
     "typescript": "^5.3.3"
   },
-  "bugs": {
-    "url": "https://github.com/tcarterjr/apply-gts/issues"
-  },
-  "homepage": "https://github.com/tcarterjr/apply-gts#readme"
+  "preset": "index.js"
 }
