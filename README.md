@@ -21,7 +21,7 @@ I run this right after creating a new Ember app. For example:
 ember new my-app --typescript --pnpm --no-welcome --embroider --lang en
 cd my-app
 npx ember-apply @tcjr/apply-gts
-npx ember-apply tailwind-webpack
+npx ember-apply tailwind
 pnpm install
 pnpm lint:fix
 ```
