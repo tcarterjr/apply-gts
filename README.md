@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This was a stop-gap that is no longer necessary!  The new [V2 app blueprint](https://github.com/embroider-build/app-blueprint) does everything this applyable does -- and more! -- so give it a try instead.
+
 # apply-gts
 
 Automates the steps for adding gjs/gts & Glint to an existing Ember app.
